@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fullscreen Example</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    button {
+      padding: 16px 32px;
+      font-size: 22px;
+      cursor: pointer;
+      background: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+    button:hover { background: #0055dd; }
+  </style>
+</head>
+<body>
+
+
+  <h1>Click to go Fullscreen</h1>
+  <button id="fsBtn">Go Fullscreen</button>
+
+
+  <script>
+    const btn = document.getElementById("fsBtn");
+
+
+    btn.addEventListener("click", () => {
+      const elem = document.documentElement;
+      const sound = new Audio('asdf.mp3'); // whole page
+
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { // Safari
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { // old Edge
+        elem.msRequestFullscreen();
+      } else if (elem.mozRequestFullScreen) { // old Firefox
+        elem.mozRequestFullScreen();
+      } else {
+        alert("Fullscreen not supported in this browser");
+      }
+      sound.currentTime = 34;          // restart from beginning (good for effects)
+    sound.play()
+      .catch(e => console.log("Audio play error:", e));
+    });
+   
+  </script>
+
+
+
+
+</body>
+</html>
