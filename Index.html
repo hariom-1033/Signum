@@ -45,7 +45,7 @@
       } else {
         alert("Fullscreen not supported in this browser");
       }
-      sound.currentTime = 34;          // restart from beginning (good for effects)
+      sound.currentTime =0;          // restart from beginning (good for effects)
     sound.play()
       .catch(e => console.log("Audio play error:", e));
     });
